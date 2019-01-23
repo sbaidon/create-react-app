@@ -1,0 +1,14 @@
+import { defineMessages } from 'react-intl'
+
+export default defineMessages({
+  // {{properCase name}}'s title
+  title: '{{properCase name}}',
+  // {{properCase name}}'s welcome
+  welcome: 'Welcome to {{properCase name}}!',
+  {{#if isReduxForm}}
+  // {{properCase name}}'s title label
+  titleLabel: 'Title:',
+  // {{properCase name}}'s title placeholder
+  titlePlaceholder: 'This is a placeholder!',
+  {{/if}}
+})

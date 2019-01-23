@@ -1,0 +1,128 @@
+{
+  "name": "@wepow/janus",
+  "version": "0.0.2",
+  "description": "React and redux starter pack for Wepow applications",
+  "author": "Enrique Ramírez <me@enrique-ramirez.com>",
+  "private": true,
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/wepow/janus#readme",
+  "bugs": {
+    "url": "https://github.com/wepow/janus/issues"
+  },
+  "main": "src/app.js",
+  "directories": {
+    "lib": "./src"
+  },
+  "scripts": {
+		"lint": "eslint src/**/*.js && stylelint src/**/*.css",
+		"precommit": "lint-staged",
+		"locales:extract": "node ./scripts/translations/extract.js"
+	},
+	"pre-commit": [
+		"precommit"
+	],
+	"lint-staged": {
+		"*.js": [
+			"eslint --fix",
+			"git add"
+		],
+		"*.css": [
+			"stylelint"
+		]
+	},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wepow/janus.git"
+  },
+  "keywords": [
+    "React",
+    "Redux",
+    "Wepow",
+    "boilerplate",
+    "starter"
+  ],
+  "files": [
+    "src"
+  ],
+  "engines": {
+    "node": "~>8.11"
+  },
+  "dependencies": {
+    "@wepow/aphrodite": "git+ssh://git@github.com/wepow/aphrodite.git",
+		"@wepow/hermes": "git+ssh://git@github.com/wepow/hermes.git",
+		"connected-react-router": "^6.0.0",
+		"history": "^4.7.2",
+		"immutable": "^3.8.2",
+		"json2csv": "^4.2.1",
+		"normalizr": "^3.2.4",
+		"prop-types": "^15.6.1",
+		"react": "^16.6.0",
+		"react-dom": "^16.6.0",
+		"react-helmet": "^5.2.0",
+		"react-immutable-proptypes": "^2.1.0",
+		"react-intl": "^2.4.0",
+		"react-redux": "^6.0.0",
+		"react-router-dom": "^4.2.2",
+		"redux": "^4.0.0",
+		"redux-actions": "^2.3.0",
+		"redux-define": "^1.1.1",
+		"redux-form": "^8.0.4",
+		"redux-immutable": "^4.0.0",
+		"redux-saga": "^0.16.0",
+		"reselect": "^3.0.1",
+		"whatwg-fetch": "^3.0.0"
+  },
+  "jest" : {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/app.js",
+      "!src/utils/intl-enzyme.js"
+    ],
+    "coverageDirectory": "./coverage",
+    "coverageThreshold": {
+      "global": {
+        "branches": 91,
+        "functions": 98,
+        "lines": 98,
+        "statements": 98
+      }
+    },
+    "moduleDirectories": ["node_modules", "src"],
+    "moduleNameMapper": {
+      "^.+\\.(css)$": "identity-obj-proxy",
+      "^.+\\.(jpg|jpeg|png|gif)$": "<rootDir>/config/mocks/fileMock.js"
+    },
+    "setupTestFrameworkScriptFile": "./config/setupTests",
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "verbose": true
+  },
+  "devDependencies": {
+		"enzyme-adapter-react-16": "^1.1.1",
+		"eslint-config-airbnb": "^16.1.0",
+		"eslint-import-resolver-webpack": "^0.9.0",
+		"eslint-loader": "^2.0.0",
+		"eslint-plugin-import": "^2.11.0",
+		"eslint-plugin-jest": "^21.15.1",
+		"eslint-plugin-jsx-a11y": "^6.0.3",
+		"eslint-plugin-react": "^7.7.0",
+		"eslint-plugin-redux-saga": "^0.8.0",
+		"eslint-plugin-reselect": "^6.6.0",
+		"jest-canvas-mock": "^1.1.0",
+		"jest-immutable-matchers": "^2.0.1",
+		"jest-svg-transformer": "^1.0.0",
+		"lint-staged": "^7.0.4",
+		"pre-commit": "^1.2.2",
+		"raf": "^3.4.0",
+		"react-hot-loader": "^4.6.0",
+		"redux-mock-store": "^1.5.1",
+		"redux-saga-test-plan": "^3.7.0",
+		"rimraf": "^2.6.2",
+		"stylelint": "^9.2.0",
+		"stylelint-config-standard": "^18.2.0",
+		"stylelint-declaration-block-no-ignored-properties": "^1.1.0",
+		"stylelint-order": "^0.8.1"
+  }
+}

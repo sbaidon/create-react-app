@@ -1,0 +1,43 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+{{#if hasMessages}}
+import { FormattedMessage } from 'react-intl'
+{{/if}}
+
+import styles from './styles.css'
+{{#if hasMessages}}
+import messages from './messages'
+{{/if}}
+
+/**
+ * {{description}}
+ */
+function {{properCase name}}(props) {
+  const {
+    ...other
+  } = props
+  const classes = styles.{{lowerCase name}}
+
+  /** Return {{properCase name}} */
+  return (
+    <div
+      className={classes}
+      {...other}
+    >
+      {{#if hasMessages}}
+      <FormattedMessage {...messages.name} />
+      {{/if}}
+    </div>
+  )
+}
+
+{{properCase name}}.propTypes = {
+  /** {{properCase name}}'s children. */
+  children: PropTypes.node,
+}
+
+{{properCase name}}.defaultProps = {
+
+}
+
+export default {{properCase name}}

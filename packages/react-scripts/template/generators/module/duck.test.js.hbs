@@ -1,0 +1,78 @@
+import { fromJS, is, List } from 'immutable'
+import { put } from 'redux-saga/effects'
+import * as matchers from 'jest-immutable-matchers'
+
+import reducer, {
+  MAIN_ACTION,
+  mainAction,
+  get{{properCase name}},
+  makeGet{{properCase name}},
+  mainSaga,
+} from 'modules/{{properCase name}}/duck'
+
+describe('{{properCase name}} duck', () => {
+  beforeAll(() => {
+    jest.addMatchers(matchers)
+  })
+
+  describe('actions', () => {
+    it('mainAction', () => {
+      const fixture = { id: '1337' }
+      const expected = {
+        type: MAIN_ACTION.ACTION,
+        payload: fixture,
+      }
+
+      expect(mainAction(fixture)).toEqual(expected)
+    })
+  })
+
+  describe('reducer', () => {
+    let initialState
+
+    beforeAll(() => {
+      initialState = fromJS({})
+    })
+
+    it('should return initial immutable state', () => {
+      expect(reducer(undefined, {})).toBeImmutableMap()
+    })
+
+    it('should handle mainAction', () => {
+      expect(is(reducer(initialState, {
+        type: MAIN_ACTION.SUCCESS,
+      }), getExpected(mainAction))).toEqual(true)
+    })
+  })
+
+  describe('selectors', () => {
+    describe('get{{properCase name}}', () => {
+      it('should select the todos domain with entities', () => {
+        expect(false).toBeTruthy()
+      })
+    })
+
+    describe('makeGet{{properCase name}}', () => {
+      const selector = makeGet{{properCase name}}()
+
+      it('should select', () => {
+        get{{properCase name}}
+      })
+    })
+  })
+
+  describe('sagas', () => {
+    describe('mainSaga', () => {
+      const fixture = { payload: fromJS({}) }
+      let generator
+
+      beforeEach(() => {
+        generator = mainSaga(fixture)
+      })
+
+      it('should have tests', () => {
+        expect(false).toBeTruthy()
+      })
+    })
+  })
+})

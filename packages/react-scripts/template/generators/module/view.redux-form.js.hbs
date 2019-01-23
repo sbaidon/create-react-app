@@ -1,0 +1,52 @@
+import React from 'react'
+// import PropTypes from 'prop-types'
+// import ImmutablePropTypes from 'react-immutable-proptypes'
+import { Field } from 'redux-form/immutable'
+{{#if hasMessages}}
+import { FormattedMessage } from 'react-intl'
+{{/if}}
+
+{{#if hasStyles}}
+import styles from './styles.css'
+{{/if}}
+{{#if hasMessages}}
+import messages from './messages'
+{{/if}}
+
+function {{properCase name}}({{#if hasMessages}}{ intl }{{/if}}) {
+  {{#unless hasMessages}}
+  const label = 'Title:'
+  const placeholder = 'This is a placeholder!'
+  {{/unless}}
+  return (
+    <form>
+      <fieldset>
+        <label>
+          {{#if hasMessages}}
+          <FormattedMessage {...messages.titleLabel} />
+          {{else}}
+          {label}
+          {{/if}}
+          <Field
+            name="title"
+            {{#if hasMessages}}
+            placeholder={intl.formatMessage(messages.titlePlaceholder)}
+            {{else}}
+            placeholder={placeholder}
+            {{/if}}
+            type="text"
+          />
+        </label>
+      </fieldset>
+    </form>
+  )
+}
+
+{{properCase name}}.propTypes = {
+  {{#if hasMessages}}
+  /** intl function */
+  intl: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  {{/if}}
+}
+
+export default {{properCase name}}

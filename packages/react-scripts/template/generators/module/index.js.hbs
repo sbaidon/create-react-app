@@ -1,0 +1,45 @@
+{{#if hasMessages}}
+import { injectIntl } from 'react-intl'
+{{/if}}
+{{#if isReduxForm}}
+import { reduxForm } from 'redux-form/immutable'
+{{else}}
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+{{/if}}
+
+{{#if isReduxForm}}
+import {
+  required,
+  makeValidate,
+} from 'utils/formValidations'
+{{else}}
+import {
+  makeGet{{properCase name}},
+} from './duck'
+{{/if}}
+
+import {{properCase name}} from './view'
+
+{{#if isReduxForm}}
+const validations = {
+  title: [required()],
+}
+{{else}}
+const mapStateToProps = createStructuredSelector({
+  todos: makeGet{{properCase name}}(),
+})
+
+const mapDispatchToProps = {
+
+}
+{{/if}}
+
+{{#if isReduxForm}}
+export default reduxForm({
+  form: '{{properCase name}}',
+  validate: makeValidate(validations),
+})({{#if hasMessages}}injectIntl({{properCase name}}){{else}}{{properCase name}}{{/if}})
+{{else}}
+export default connect(mapStateToProps, mapDispatchToProps)({{#if hasMessages}}injectIntl({{properCase name}}){{else}}{{properCase name}}{{/if}})
+{{/if}}

@@ -1,0 +1,44 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import configureStore from 'redux-mock-store'
+import { shallow, mount } from 'enzyme'
+import { fromJS } from 'immutable'
+import { MemoryRouter } from 'react-router-dom'
+import { IntlProvider } from 'react-intl'
+
+import Connected{{properCase name}} from 'modules/{{properCase name}}'
+
+describe('Connected <{{properCase name}} />', () => {
+  const initialState = fromJS({})
+
+  let mockStore
+  let store
+
+  beforeAll(() => {
+    mockStore = configureStore([])
+    store = mockStore(initialState)
+  })
+
+  it('props should match mapStateToProps', () => {
+    const wrapper = shallow(<Connected{{properCase name}} store={store} />)
+
+    expect(false).toBeTruthy()
+  })
+
+  it('props should match mapDispatchToProps', () => {
+    const languages = { en: {} }
+    const wrapper = mount(
+      <IntlProvider locale="en" messages={languages}>
+        <MemoryRouter>
+          <Connected{{properCase name}} />
+        </MemoryRouter>
+      </IntlProvider>,
+      {
+        context: { store },
+        childContextTypes: { store: PropTypes.object.isRequired },
+      },
+    )
+
+    expect(false).toBeTruthy()
+  })
+})
