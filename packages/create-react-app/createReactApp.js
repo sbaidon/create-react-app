@@ -49,6 +49,13 @@ const url = require('url');
 const hyperquest = require('hyperquest');
 const envinfo = require('envinfo');
 const os = require('os');
+const janusDependencies = require('../janus-react-scripts/janus/dependencies');
+const dependencies = [
+  ...Object.entries(janusDependencies.external).map(
+    ([key, value]) => `${key}@${value}`
+  ),
+  ...Object.values(janusDependencies.local),
+];
 
 const packageJson = require('./package.json');
 
@@ -370,7 +377,12 @@ function run(
   useTypescript
 ) {
   const packageToInstall = getInstallPackage(version, originalDirectory);
-  const allDependencies = ['react', 'react-dom', packageToInstall];
+  const allDependencies = [
+    'react',
+    'react-dom',
+    packageToInstall,
+    ...dependencies,
+  ];
   if (useTypescript) {
     // TODO: get user's node version instead of installing latest
     allDependencies.push(
