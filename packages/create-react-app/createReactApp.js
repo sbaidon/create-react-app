@@ -49,7 +49,7 @@ const url = require('url');
 const hyperquest = require('hyperquest');
 const envinfo = require('envinfo');
 const os = require('os');
-const janusDependencies = require('../janus-react-scripts/janus/dependencies');
+const janusDependencies = require('../react-scripts/janus/dependencies');
 const dependencies = [
   ...Object.entries(janusDependencies.external).map(
     ([key, value]) => `${key}@${value}`
