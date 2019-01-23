@@ -1,0 +1,25 @@
+// eslint-disable-next-line strict
+module.exports = {
+  external: {
+    'connected-react-router': '^6.0.0',
+    history: '^4.7.2',
+    immutable: '^3.8.2',
+    json2csv: '^4.2.1',
+    normalizr: '^3.2.4',
+    'prop-types': '^15.6.1',
+    'react-helmet': '^5.2.0',
+    'react-immutable-proptypes': '^2.1.0',
+    'react-intl': '^2.4.0',
+    'react-redux': '^6.0.0',
+    'react-router-dom': '^4.2.2',
+    redux: '^4.0.0',
+    'redux-actions': '^2.3.0',
+    'redux-define': '^1.1.1',
+    'redux-form': '^8.0.4',
+    'redux-immutable': '^4.0.0',
+    'redux-saga': '^0.16.0',
+    reselect: '^3.0.1',
+    'whatwg-fetch': '^3.0.0',
+  },
+  local: {},
+};
